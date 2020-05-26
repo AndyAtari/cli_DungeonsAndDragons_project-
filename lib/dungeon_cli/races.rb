@@ -1,3 +1,3 @@
 class Races
-puts "races class loaded"
+puts "races loaded!!!!!"
 end
