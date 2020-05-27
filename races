@@ -1,0 +1,14 @@
+
+[1mFrom:[0m /mnt/c/Users/andre/Portfolio_Projects/CLI_Project_D&D/cli_DungeonsAndDragons_project-/lib/dungeon_cli/api.rb:12 Api.get_races:
+
+     [1;34m5[0m:     [32mdef[0m [1;36mself[0m.[1;34mget_races[0m
+     [1;34m6[0m:        res = [1;34;4mRestClient[0m.get([1;34;4mBASE_URl[0m)
+     [1;34m7[0m:        data = [1;34;4mJSON[0m.parse(res.body)
+     [1;34m8[0m:        data[[31m[1;31m"[0m[31mresults[1;31m"[0m[31m[0m].each [32mdo[0m |race|
+     [1;34m9[0m:         puts race[[31m[1;31m"[0m[31mindex[1;31m"[0m[31m[0m]
+    [1;34m10[0m:         puts race[[31m[1;31m"[0m[31mname[1;31m"[0m[31m[0m]
+    [1;34m11[0m:         puts race[[31m[1;31m"[0m[31murl[1;31m"[0m[31m[0m]
+ => [1;34m12[0m:         binding.pry
+    [1;34m13[0m:     [32mend[0m
+    [1;34m14[0m: [32mend[0m
+
