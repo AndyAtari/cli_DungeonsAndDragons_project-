@@ -1,9 +1,9 @@
 class Api
 
-    BASE_URl = 'http://www.dnd5eapi.co/api/races'
+    BASE_RACES_URl = 'http://www.dnd5eapi.co/api/races'
 
     def self.get_races
-       res = RestClient.get(BASE_URl)
+       res = RestClient.get(BASE_RACES_URl)
        data = JSON.parse(res.body)
        data["results"].each do |race|
         index = race["index"]
