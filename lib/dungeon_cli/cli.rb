@@ -5,7 +5,6 @@ class Cli
         Api.get_races
         main
         
-
     end
 
     def main
@@ -13,7 +12,7 @@ class Cli
         print_selection 
         index = user_selection
         valid_call(index)
-        binding.pry
+        get_race_details(index)
     end
 
     def print_welcome
@@ -63,6 +62,9 @@ class Cli
         end
     end
     
+    def get_race_details(index)
+        Api.get_details_by_index(index)
+    end
     
 
 end
