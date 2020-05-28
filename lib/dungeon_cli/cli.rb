@@ -4,14 +4,15 @@ class Cli
         print_welcome
         Api.get_races
         main
+        
 
     end
 
     def main
         print_all
         print_selection 
-        index = user_selection 
-        valid_index?(index)
+        index = user_selection
+        valid_call(index)
         binding.pry
     end
 
@@ -20,7 +21,7 @@ class Cli
     end
 
     def print_all
-        Races.all.each {|race| puts "#{race.index}"}    
+        Races.all.each {|race| puts race.index}    
     end
 
     def print_selection
@@ -35,8 +36,33 @@ class Cli
         gets.chomp 
     end
 
-    def valid_index?(index) 
-        case index
-            
+    def valid_call(index)
+        case index 
+        when "dragonborn"
+            puts "Dragonborn"
+        when "dwarf"
+            puts "Dwarf"
+        when "elf"
+            puts "ELF"
+        when "gnome"
+            puts "Gnome"
+        when "half-elf"
+            puts "Half-elf"
+        when "half-orc"
+            puts "Half-orc"
+        when "halfling"
+            puts "Halfling"
+        when "human"
+            puts "Human"
+        when "tiefling"
+            puts "Tiefling"
+        else 
+            print_invalid_selection
+            sleep 1
+            main
+        end
     end
+    
+    
+
 end

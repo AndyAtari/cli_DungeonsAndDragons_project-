@@ -14,7 +14,7 @@ class Api
     end
 
     def self.get_details_by_index(index)
-        res = RestClient.get("#{BASE_RACES_URL}#{index}")
+        res = RestClient.get('http://www.dnd5eapi.co/api/races/elf')
         data = JSON.parse(res.body)
     end
 end
