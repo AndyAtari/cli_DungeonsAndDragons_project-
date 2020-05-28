@@ -23,7 +23,6 @@ class Api
         size_stat = data["size"]
         size_description = data["size_description"]
         selected_race.update(speed, alignment, age, size_stat, size_description)
-        binding.pry
         selected_race
     end
 end

@@ -12,7 +12,10 @@ class Cli
         print_selection 
         index = user_selection
         valid_call(index)
-        get_race_details(index)
+        update = get_race_details(index)
+        print_details(update)
+        print_continue
+        continue?(user_selection)
     end
 
     def print_welcome
@@ -29,6 +32,23 @@ class Cli
 
     def print_invalid_selection
         puts "I am sorry friend, that is an invalid Race. Please choose wisely:"
+    end
+
+    def print_details(race)
+        puts "Name: #{race.name}" 
+        puts "Speed: #{race.speed}".red 
+        puts "Alignment: #{race.alignment}".green 
+        puts "Age: #{race.age}".yellow
+        puts "Size: #{race.size_stat}".blue
+        puts "Size Description: #{race.size_description}".light_blue
+    end
+
+    def print_continue
+        puts "Would you like to continue traveler? (yay/nay)"
+    end
+
+    def print_bye
+        puts "Farewell! I'll be awaiting your arrival in the realm."
     end
 
     def user_selection 
@@ -61,10 +81,21 @@ class Cli
             main
         end
     end
+
+    def continue?(choice)
+        if choice == "yay"
+            main
+        else
+            print_bye
+            exit 
+        end
+    end
     
     def get_race_details(index)
         Api.get_details_by_index(index)
     end
+
+    
     
 
 end
