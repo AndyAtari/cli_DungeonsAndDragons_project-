@@ -3,4 +3,4 @@
 require_relative '../lib/dungeon_cli.rb'
 
 
-#Cli.new.run 
+Cli.new.run 
