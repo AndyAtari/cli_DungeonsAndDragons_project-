@@ -39,23 +39,23 @@ class Cli
     def valid_call(index)
         case index 
         when "dragonborn"
-            puts "Dragonborn"
+            puts "Ah...the Dragonborn"
         when "dwarf"
-            puts "Dwarf"
+            puts "Ah...the Dwarf"
         when "elf"
-            puts "ELF"
+            puts "Ah...the Elf"
         when "gnome"
-            puts "Gnome"
+            puts "Ah...the Gnome"
         when "half-elf"
-            puts "Half-elf"
+            puts "Ah...the Half-Elf"
         when "half-orc"
-            puts "Half-orc"
+            puts "Ah...the Half-Orc"
         when "halfling"
-            puts "Halfling"
+            puts "Ah...the Halfling"
         when "human"
-            puts "Human"
+            puts "Ah...the Human"
         when "tiefling"
-            puts "Tiefling"
+            puts "Ah...the Tiefling"
         else 
             print_invalid_selection
             sleep 1
