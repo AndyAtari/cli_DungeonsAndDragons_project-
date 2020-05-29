@@ -12,7 +12,9 @@ class Cli
         print_selection 
         index = user_selection
         valid_call(index)
-        update = get_race_details(index)
+        index = chosen_race(index)
+        Api.get_details_by_index(index)
+        get_race_details(index)  
         print_details(update)
         print_continue
         continue?(user_selection)
@@ -23,11 +25,11 @@ class Cli
     end
 
     def print_all
-        Races.all.each {|race| puts race.index}    
+        Race.all.each.with_index(1) {|race, index| puts "#{index}: #{race.name}"}    
     end
 
     def print_selection
-        puts "Please choose the desired Race for more lore:"
+        puts "Please choose the number of the desired Race for more lore:"
     end
 
     def print_invalid_selection
@@ -56,31 +58,21 @@ class Cli
     end
 
     def valid_call(index)
-        case index 
-        when "dragonborn"
-            puts "Ah...the Dragonborn"
-        when "dwarf"
-            puts "Ah...the Dwarf"
-        when "elf"
-            puts "Ah...the Elf"
-        when "gnome"
-            puts "Ah...the Gnome"
-        when "half-elf"
-            puts "Ah...the Half-Elf"
-        when "half-orc"
-            puts "Ah...the Half-Orc"
-        when "halfling"
-            puts "Ah...the Halfling"
-        when "human"
-            puts "Ah...the Human"
-        when "tiefling"
-            puts "Ah...the Tiefling"
-        else 
+        index = index.to_i 
+        if index < 1 || index > Race.all.size 
             print_invalid_selection
             sleep 1
             main
         end
+        index
     end
+
+    def chosen_race(index)
+        input = index.to_i 
+        index = Race.all.map{|race| race.name}[input - 1]
+        index  
+    end
+    
 
     def continue?(choice)
         if choice == "yay"
@@ -91,9 +83,9 @@ class Cli
         end
     end
     
-    def get_race_details(index)
-        selected_race = Races.find_by_index(index)
-        Api.get_details_by_index(index) unless selected_race.has_details?
+    def get_race_details(selected_race)
+        selected_race = Race.find_by_name(name)
+        Api.get_details_by_index(selected_race) unless selected_race.has_details?
         selected_race 
     end
 
@@ -101,3 +93,9 @@ class Cli
     
 
 end
+
+#once number selection is validated..
+# looks up corresponding object in Race.all using index number => if user selects 5, you would find Race.all[4]
+# once you have found the object and have a reference to it, you'll then have access to the race.name property
+# .name property can be pass to a method to print puts "Ah...the #{name.upcase}"
+# .name can also then be passed to Api to call for add. details

@@ -1,11 +1,9 @@
-class Races
-    attr_accessor :index, :name, :id, :speed, :alignment, :age, :size_stat, :size_description 
+class Race
+    attr_accessor :name, :speed, :alignment, :age, :size_stat, :size_description 
     @@all = []
 
-    def initialize(index, name, id)
-        @index = index
+    def initialize(name)
         @name = name
-        @id = id
         @@all << self 
     end
 
@@ -13,8 +11,8 @@ class Races
         @@all 
     end
 
-    def self.find_by_index(index)
-        self.all.detect{|race| race.index == index}
+    def self.find_by_name(name)
+       Race.all.detect {|race| race.name == name}
     end
 
     def update(speed, alignment, age, size_stat, size_description)

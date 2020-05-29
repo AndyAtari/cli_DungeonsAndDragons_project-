@@ -6,24 +6,23 @@ class Api
        res = RestClient.get(BASE_RACES_URL)
        data = JSON.parse(res.body)
        data["results"].each do |race|
-        index = race["index"]
-        name = race["name"]
-        id = race["url"].split("/")[-1]
-        Races.new(index, name, id)
+        name = race["index"]
+        Race.new(name)
         end
     end
 
     def self.get_details_by_index(index)
-        selected_race = Races.find_by_index(index)
+        #selected_race = Race.find_by_name(name)
         res = RestClient.get(BASE_RACES_URL + index)
-        data = JSON.parse(res.body)
+        data = JSON.parse(res.body) 
+        binding.pry 
         speed = data["speed"]
         alignment = data["alignment"]
         age = data["age"]
         size_stat = data["size"]
         size_description = data["size_description"]
-        selected_race.update(speed, alignment, age, size_stat, size_description)
-        selected_race
+        #selected_race.update(speed, alignment, age, size_stat, size_description)
+        #selected_race
     end
 end
 
