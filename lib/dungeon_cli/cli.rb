@@ -92,7 +92,9 @@ class Cli
     end
     
     def get_race_details(index)
-        Api.get_details_by_index(index)
+        selected_race = Races.find_by_index(index)
+        Api.get_details_by_index(index) unless selected_race.has_details?
+        selected_race 
     end
 
     

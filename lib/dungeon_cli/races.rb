@@ -23,7 +23,10 @@ class Races
         self.age = age 
         self.size_stat = size_stat 
         self.size_description = size_description
-        
     end
 
+    def has_details?
+        self.speed && self.alignment && self.age && self.size_stat && self.size_description
+    end
+    
 end
