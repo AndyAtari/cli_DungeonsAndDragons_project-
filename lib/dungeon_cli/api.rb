@@ -11,18 +11,17 @@ class Api
         end
     end
 
-    def self.get_details_by_index(index)
-        #selected_race = Race.find_by_name(name)
-        res = RestClient.get(BASE_RACES_URL + index)
-        data = JSON.parse(res.body) 
-        binding.pry 
+    def self.get_details_by_name(name)
+        selected_race = Race.find_by_name(name)
+        res = RestClient.get(BASE_RACES_URL + name)
+        data = JSON.parse(res.body)  
         speed = data["speed"]
         alignment = data["alignment"]
         age = data["age"]
         size_stat = data["size"]
         size_description = data["size_description"]
-        #selected_race.update(speed, alignment, age, size_stat, size_description)
-        #selected_race
+        selected_race.update(speed, alignment, age, size_stat, size_description)
+        selected_race
     end
 end
 

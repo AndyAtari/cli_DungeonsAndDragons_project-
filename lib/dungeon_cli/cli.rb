@@ -4,17 +4,15 @@ class Cli
         print_welcome
         Api.get_races
         main
-        
     end
 
     def main
         print_all
         print_selection 
-        index = user_selection
-        valid_call(index)
-        index = chosen_race(index)
-        Api.get_details_by_index(index)
-        get_race_details(index)  
+        name = user_selection
+        valid_call(name)
+        #binding.pry 
+        update = get_race_details(name)  
         print_details(update)
         print_continue
         continue?(user_selection)
@@ -25,11 +23,11 @@ class Cli
     end
 
     def print_all
-        Race.all.each.with_index(1) {|race, index| puts "#{index}: #{race.name}"}    
+        Race.all.each {|race| puts race.name}    
     end
 
     def print_selection
-        puts "Please choose the number of the desired Race for more lore:"
+        puts "Please choose the desired Race for more lore:"
     end
 
     def print_invalid_selection
@@ -57,22 +55,14 @@ class Cli
         gets.chomp 
     end
 
-    def valid_call(index)
-        index = index.to_i 
-        if index < 1 || index > Race.all.size 
+    def valid_call(name)
+        if name = Race.find_by_name(name)
+        else
             print_invalid_selection
             sleep 1
             main
         end
-        index
     end
-
-    def chosen_race(index)
-        input = index.to_i 
-        index = Race.all.map{|race| race.name}[input - 1]
-        index  
-    end
-    
 
     def continue?(choice)
         if choice == "yay"
@@ -83,9 +73,9 @@ class Cli
         end
     end
     
-    def get_race_details(selected_race)
+    def get_race_details(name)
         selected_race = Race.find_by_name(name)
-        Api.get_details_by_index(selected_race) unless selected_race.has_details?
+        Api.get_details_by_name(name) unless selected_race.has_details?
         selected_race 
     end
 

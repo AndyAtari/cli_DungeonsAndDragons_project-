@@ -12,7 +12,7 @@ class Race
     end
 
     def self.find_by_name(name)
-       Race.all.detect {|race| race.name == name}
+       self.all.detect{|race| race.name == name}
     end
 
     def update(speed, alignment, age, size_stat, size_description)
