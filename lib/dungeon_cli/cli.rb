@@ -56,17 +56,16 @@ class Cli
     end
 
     def user_race_selection 
-        input = gets.chomp.to_i 
-        name = Race.all.map {|race| race.name}[input - 1]
+        input = gets.chomp.to_i - 1 
+        name = Race.all.map {|race| race.name}[input]
         name 
     end
 
     def valid_call(name)
-        if name = Race.find_by_name(name)
-        else
+        until Race.find_by_name(name)
             print_invalid_selection
             sleep 1
-            main
+            main 
         end
     end
 

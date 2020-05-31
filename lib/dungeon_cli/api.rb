@@ -12,6 +12,7 @@ class Api
     end
 
     def self.get_details_by_name(name)
+        puts "getting details"
         selected_race = Race.find_by_name(name)
         res = RestClient.get(BASE_RACES_URL + name)
         data = JSON.parse(res.body)  
