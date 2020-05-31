@@ -44,7 +44,7 @@ class Cli
     end
 
     def print_continue
-        puts "Would you like to continue traveler? (yay/nay)"
+        puts "Would you like to continue traveler? (Enter 1 for Yay or 2 for Nay)"
     end
 
     def print_bye
@@ -69,9 +69,9 @@ class Cli
     end
 
     def continue?(choice) 
-        if choice == "yay"
+        if choice == "1"
             main
-        elsif choice == "nay"
+        elsif choice == "2"
             print_bye
             exit 
         else
