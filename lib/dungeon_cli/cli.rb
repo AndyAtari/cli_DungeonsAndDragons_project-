@@ -9,7 +9,7 @@ class Cli
     def main
         print_all
         print_selection 
-        name = user_selection
+        name = user_race_selection  
         valid_call(name)
         #binding.pry 
         update = get_race_details(name)  
@@ -23,11 +23,11 @@ class Cli
     end
 
     def print_all
-        Race.all.each {|race| puts race.name}    
+        Race.all.each.with_index(1) {|race, index| puts "#{index}: #{race.name.upcase}"}    
     end
 
     def print_selection
-        puts "Please choose the desired Race for more lore:"
+        puts "Please choose the number of the desired Race for more lore:"
     end
 
     def print_invalid_selection
@@ -35,7 +35,7 @@ class Cli
     end
 
     def print_details(race)
-        puts "Name: #{race.name}" 
+        puts "Name: #{race.name.capitalize}" 
         puts "Speed: #{race.speed}".red 
         puts "Alignment: #{race.alignment}".green 
         puts "Age: #{race.age}".yellow
@@ -51,8 +51,14 @@ class Cli
         puts "Farewell! I'll be awaiting your arrival in the realm."
     end
 
-    def user_selection 
-        gets.chomp 
+    def user_selection
+        gets.chomp
+    end
+
+    def user_race_selection 
+        input = gets.chomp.to_i 
+        name = Race.all.map {|race| race.name}[input - 1]
+        name 
     end
 
     def valid_call(name)
@@ -64,12 +70,15 @@ class Cli
         end
     end
 
-    def continue?(choice)
+    def continue?(choice) 
         if choice == "yay"
             main
-        else
+        elsif choice == "nay"
             print_bye
             exit 
+        else
+            puts "I am sorry traveler, I can not do that right now"
+            main
         end
     end
     
