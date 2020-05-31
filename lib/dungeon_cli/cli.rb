@@ -56,9 +56,8 @@ class Cli
     end
 
     def user_race_selection 
-        input = gets.chomp.to_i - 1 
-        name = Race.all.map {|race| race.name}[input]
-        name 
+        input = gets.chomp.to_i - 1  
+        Race.all.map{|race| race.name}[input] 
     end
 
     def valid_call(name)
@@ -77,6 +76,7 @@ class Cli
             exit 
         else
             puts "I am sorry traveler, I can not do that right now"
+            sleep 1
             main
         end
     end
