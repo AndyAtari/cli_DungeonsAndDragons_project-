@@ -4,6 +4,7 @@ class Cli
         print_welcome
         Api.get_races
         main
+ 
     end
 
     def main
@@ -11,7 +12,6 @@ class Cli
         print_selection 
         name = user_race_selection  
         valid_call(name)
-        #binding.pry 
         update = get_race_details(name)  
         print_details(update)
         print_continue
@@ -35,8 +35,10 @@ class Cli
     end
 
     def print_details(race)
-        puts "Name: #{race.name.capitalize}" 
+        puts Rainbow("Name: #{race.name.upcase}").maroon    
         puts "Speed: #{race.speed}".red 
+        puts "Ability Name: #{race.ability}"
+        puts "Bonus: #{race.bonus}"
         puts "Alignment: #{race.alignment}".green 
         puts "Age: #{race.age}".yellow
         puts "Size: #{race.size_stat}".blue

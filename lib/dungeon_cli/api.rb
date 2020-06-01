@@ -16,15 +16,26 @@ class Api
         selected_race = Race.find_by_name(name)
         res = RestClient.get(BASE_RACES_URL + name)
         data = JSON.parse(res.body)  
+        #binding.pry 
         speed = data["speed"]
+        ability = (data["ability_bonuses"].map {|ability| ability["name"]}).join(', ')
+        bonus = (data["ability_bonuses"].map {|ability| ability.dig("bonus")}).join(', ')
         alignment = data["alignment"]
         age = data["age"]
         size_stat = data["size"]
         size_description = data["size_description"]
-        selected_race.update(speed, alignment, age, size_stat, size_description)
+        selected_race.update(speed, ability, bonus, alignment, age, size_stat, size_description)
         selected_race
     end
 end
+
+
+        
+             
+    
+
+
+
 
 
 
