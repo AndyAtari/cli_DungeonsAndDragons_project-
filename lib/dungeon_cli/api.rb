@@ -27,7 +27,9 @@ class Api
         starting_prof = (data["starting_proficiencies"].map {|p| p.dig("name")}).join(', ')
         languages = (data["languages"].map {|l| l.dig("name")}).join(', ')
         language_desc = data["language_desc"]
-        selected_race.update(speed, ability, bonus, alignment, age, size_stat, size_desc, starting_prof, languages, language_desc)
+        traits = (data["traits"].map {|t| t.dig("name")}).join(', ')
+        subraces = (data["subraces"].map {|subrace| subrace.dig("name")}).join(', ')
+        selected_race.update(speed, ability, bonus, alignment, age, size_stat, size_desc, starting_prof, languages, language_desc, traits, subraces)
         selected_race
     end
 end

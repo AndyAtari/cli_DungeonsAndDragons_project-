@@ -46,6 +46,8 @@ class Cli
         puts "Starting Proficiencies: #{race.starting_prof}"
         puts "Languages: #{race.languages}"
         puts "Language Description: #{race.language_desc}"
+        puts "Traits: #{race.traits}"
+        puts "Subraces: #{race.subraces}"
     end
 
     def print_continue

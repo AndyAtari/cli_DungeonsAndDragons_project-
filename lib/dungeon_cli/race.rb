@@ -1,5 +1,5 @@
 class Race
-    attr_accessor :name, :speed, :ability, :bonus, :alignment, :age, :size_stat, :size_desc, :starting_prof, :languages, :language_desc
+    attr_accessor :name, :speed, :ability, :bonus, :alignment, :age, :size_stat, :size_desc, :starting_prof, :languages, :language_desc, :traits, :subraces
     @@all = []
 
     def initialize(name)
@@ -15,7 +15,7 @@ class Race
        self.all.detect{|race| race.name == name}
     end
 
-    def update(speed, ability, bonus, alignment, age, size_stat, size_desc, starting_prof, languages, language_desc)
+    def update(speed, ability, bonus, alignment, age, size_stat, size_desc, starting_prof, languages, language_desc, traits, subraces)
         self.speed = speed
         self.ability = ability
         self.bonus = bonus 
@@ -26,10 +26,12 @@ class Race
         self.starting_prof = starting_prof
         self.languages = languages
         self.language_desc = language_desc
+        self.traits = traits 
+        self.subraces = subraces 
     end
 
     def has_details?
-        self.speed && self.ability && self.bonus && self.alignment && self.age && self.size_stat && self.size_desc && self.starting_prof && languages && language_desc
+        speed && ability && bonus && alignment && age && size_stat && size_desc && starting_prof && languages && language_desc && traits && subraces 
     end
     
 end
