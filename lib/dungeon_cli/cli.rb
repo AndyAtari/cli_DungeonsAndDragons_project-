@@ -42,7 +42,10 @@ class Cli
         puts "Alignment: #{race.alignment}".green 
         puts "Age: #{race.age}".yellow
         puts "Size: #{race.size_stat}".blue
-        puts "Size Description: #{race.size_description}".light_blue
+        puts "Size Description: #{race.size_desc}".light_blue
+        puts "Starting Proficiencies: #{race.starting_prof}"
+        puts "Languages: #{race.languages}"
+        puts "Language Description: #{race.language_desc}"
     end
 
     def print_continue
@@ -94,8 +97,4 @@ class Cli
 
 end
 
-#once number selection is validated..
-# looks up corresponding object in Race.all using index number => if user selects 5, you would find Race.all[4]
-# once you have found the object and have a reference to it, you'll then have access to the race.name property
-# .name property can be pass to a method to print puts "Ah...the #{name.upcase}"
-# .name can also then be passed to Api to call for add. details
+

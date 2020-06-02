@@ -23,11 +23,15 @@ class Api
         alignment = data["alignment"]
         age = data["age"]
         size_stat = data["size"]
-        size_description = data["size_description"]
-        selected_race.update(speed, ability, bonus, alignment, age, size_stat, size_description)
+        size_desc = data["size_description"]
+        starting_prof = (data["starting_proficiencies"].map {|p| p.dig("name")}).join(', ')
+        languages = (data["languages"].map {|l| l.dig("name")}).join(', ')
+        language_desc = data["language_desc"]
+        selected_race.update(speed, ability, bonus, alignment, age, size_stat, size_desc, starting_prof, languages, language_desc)
         selected_race
     end
 end
+
 
 
         
