@@ -18,6 +18,8 @@ class Api
         data = JSON.parse(res.body)  
         #binding.pry 
         speed = data["speed"]
+        #speed = {"speed" => data["speed"], "age" => data["age"], 
+            #"ability" => (data["ability_bonuses"].map {|ability| ability["name"]}).join(', ') }
         ability = (data["ability_bonuses"].map {|ability| ability["name"]}).join(', ')
         bonus = (data["ability_bonuses"].map {|ability| ability.dig("bonus")}).join(', ')
         alignment = data["alignment"]
@@ -28,7 +30,7 @@ class Api
         languages = (data["languages"].map {|l| l.dig("name")}).join(', ')
         language_desc = data["language_desc"]
         traits = (data["traits"].map {|t| t.dig("name")}).join(', ')
-        subraces = (data["subraces"].map {|subrace| subrace.dig("name")}).join(', ')
+        subraces = (data["subraces"].map {|subrace| subrace.dig("name")}).join(', ') 
         selected_race.update(speed, ability, bonus, alignment, age, size_stat, size_desc, starting_prof, languages, language_desc, traits, subraces)
         selected_race
     end

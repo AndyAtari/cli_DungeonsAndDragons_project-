@@ -35,19 +35,20 @@ class Cli
     end
 
     def print_details(race)
-        puts Rainbow("Name: #{race.name.upcase}").maroon    
-        puts "Speed: #{race.speed}".red 
-        puts "Ability Name: #{race.ability}"
-        puts "Bonus: #{race.bonus}"
-        puts "Alignment: #{race.alignment}".green 
-        puts "Age: #{race.age}".yellow
-        puts "Size: #{race.size_stat}".blue
-        puts "Size Description: #{race.size_desc}".light_blue
-        puts "Starting Proficiencies: #{race.starting_prof}"
-        puts "Languages: #{race.languages}"
-        puts "Language Description: #{race.language_desc}"
-        puts "Traits: #{race.traits}"
-        puts "Subraces: #{race.subraces}"
+        puts "Name: #{race.name.upcase}".red     
+        puts Rainbow("Speed: #{race.speed}").orangered
+        #race.speed.each{|k,v| puts "#{k}: #{v}"}
+        puts Rainbow("Ability Name: #{race.ability}").gold
+        puts Rainbow("Bonus: #{race.bonus}").violet  
+        puts Rainbow("Alignment: #{race.alignment}").olive 
+        puts Rainbow("Age: #{race.age}").silver
+        puts Rainbow("Size: #{race.size_stat}").darkgray
+        puts Rainbow("Size Description: #{race.size_desc}").yellowgreen
+        puts Rainbow("Starting Proficiencies: #{race.starting_prof}").crimson
+        puts Rainbow("Languages: #{race.languages}").saddlebrown
+        puts Rainbow("Language Description: #{race.language_desc}").purple 
+        puts Rainbow("Traits: #{race.traits}").skyblue
+        puts Rainbow("Subraces: #{race.subraces}").royalblue
     end
 
     def print_continue

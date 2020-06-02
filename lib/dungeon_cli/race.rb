@@ -1,5 +1,7 @@
 class Race
-    attr_accessor :name, :speed, :ability, :bonus, :alignment, :age, :size_stat, :size_desc, :starting_prof, :languages, :language_desc, :traits, :subraces
+    attr_accessor :name, :speed, :ability, :bonus, :alignment, :age, :size_stat, 
+    :size_desc, :starting_prof, :languages, :language_desc, :traits, :subraces
+    
     @@all = []
 
     def initialize(name)
