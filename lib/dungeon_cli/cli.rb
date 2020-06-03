@@ -19,44 +19,33 @@ class Cli
     end
 
     def print_welcome
-        puts "Greetings Traveler! Welcome to the Dungeons and Dragons API!"
+        puts "Greetings Traveler! Welcome to the Dungeons and Dragons CLI Adventure!".red 
     end
 
     def print_all
-        Race.all.each.with_index(1) {|race, index| puts "#{index}: #{race.name.upcase}"}    
+        Race.all.each.with_index(1) {|race, index| puts Rainbow("#{index}: #{race.name.upcase}").orangered}    
     end
 
     def print_selection
-        puts "Please choose the number of the desired Race for more lore:"
+        puts Rainbow("Please choose the number of the desired race for more lore:").gold 
     end
 
     def print_invalid_selection
-        puts "I am sorry friend, that is an invalid Race. Please choose wisely:"
+        puts Rainbow("I am sorry friend, that is an invalid race. Please choose wisely:").violet 
     end
 
     def print_details(race)
-        puts "Name: #{race.name.upcase}".red     
-        puts Rainbow("Speed: #{race.speed}").orangered
-        #race.speed.each{|k,v| puts "#{k}: #{v}"}
-        puts Rainbow("Ability Name: #{race.ability}").gold
-        puts Rainbow("Bonus: #{race.bonus}").violet  
-        puts Rainbow("Alignment: #{race.alignment}").olive 
-        puts Rainbow("Age: #{race.age}").silver
-        puts Rainbow("Size: #{race.size_stat}").darkgray
-        puts Rainbow("Size Description: #{race.size_desc}").yellowgreen
-        puts Rainbow("Starting Proficiencies: #{race.starting_prof}").crimson
-        puts Rainbow("Languages: #{race.languages}").saddlebrown
-        puts Rainbow("Language Description: #{race.language_desc}").purple 
-        puts Rainbow("Traits: #{race.traits}").skyblue
-        puts Rainbow("Subraces: #{race.subraces}").royalblue
+        puts Rainbow("NAME: #{race.name.upcase}").olive     
+        race.bio.each{|k,v| puts Rainbow("#{k.upcase}: #{v}").royalblue}
+        puts Rainbow("SUBRACE: #{race.subrace}").skyblue 
     end
 
     def print_continue
-        puts "Would you like to continue traveler? (Enter 1 for Yay or 2 for Nay)"
+        puts Rainbow("Would you like to continue traveler? (Enter 1 for Yay or 2 for Nay)").silver
     end
 
     def print_bye
-        puts "Farewell! I'll be awaiting your arrival in the realm."
+        puts Rainbow("Farewell! I'll be awaiting your arrival in the Realm.").crimson 
     end
 
     def user_selection
@@ -83,7 +72,7 @@ class Cli
             print_bye
             exit 
         else
-            puts "I am sorry traveler, I can not do that right now"
+            puts Rainbow("I am sorry Dave, I'm afraid I can't do that.").darkgray 
             sleep 1
             main
         end
