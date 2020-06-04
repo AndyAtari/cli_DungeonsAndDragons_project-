@@ -21,7 +21,7 @@ and then install bundler:
 
 In your terminal type the following to run the program:
 
-```bin/run```
+```$ bin/run```
 
 ## Contributing
 
