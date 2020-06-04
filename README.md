@@ -9,13 +9,19 @@ creating their desired character.
 
 ## Installation 
 
-Clone the repository and then: 
+Clone the repository above or type in your terminal: 
 
-```$ cd cli_DungeonsAndDragons_project-```
+```$ git clone https://github.com/AndyAtari/cli_DungeonsAndDragons_project-.git``` 
 
-and then:
+and then install bundler:
 
-```$ bin/run```
+```$ bundle```
+
+## Usage 
+
+In your terminal type the following to run the program:
+
+```bin/run```
 
 ## Contributing
 
