@@ -11,7 +11,7 @@ creating their desired character.
 
 Clone the repository and then: 
 
-```$ cd cli_DungeonsAndDragons_project```
+```$ cd cli_DungeonsAndDragons_project-```
 
 and then:
 
