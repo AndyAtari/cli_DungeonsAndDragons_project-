@@ -19,8 +19,8 @@ class Api
             "ability" => (data["ability_bonuses"].map {|ability| ability["name"]}).join(', '),
             "bonus" =>  (data["ability_bonuses"].map {|ability| ability.dig("bonus")}).join(', '),
             "alignment" => data["alignment"], "age" => data["age"], "size" => data["size"],
-            "size_desc" => data["size_description"], 
-            "starting_prof" => (data["starting_proficiencies"].map {|p| p.dig("name")}).join(', '),
+            "size description" => data["size_description"], 
+            "starting proficiencies" => (data["starting_proficiencies"].map {|p| p.dig("name")}).join(', '),
             "languages" => (data["languages"].map {|l| l.dig("name")}).join(', '),
             "language description" => data["language_desc"],
             "traits" => (data["traits"].map {|t| t.dig("name")}).join(', ')}
