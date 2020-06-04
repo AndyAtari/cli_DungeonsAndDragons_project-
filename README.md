@@ -10,11 +10,16 @@ creating their desired character.
 ## Installation 
 
 Clone the repository and then: 
+
 ```$ cd cli_DungeonsAndDragons_project```
+
+and then:
+
+```bin/run```
 
 ## Contributing
 
-Bug reports and pull requests are welcome on GitHub at https://github.com/AndyAtari/cli_DungeonsAndDragons_project-. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the Contributor Covenant(https://www.contributor-covenant.org/) code of conduct.
+Bug reports and pull requests are welcome on GitHub at https://github.com/AndyAtari/cli_DungeonsAndDragons_project-. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the Contributor Covenant(https://www.contributor-covenant.org/ "Contributor Covenant") code of conduct.
 
 ## License 
 The gem is available as open source under the terms of the MIT License.
