@@ -1,5 +1,6 @@
 # Dungeons and Dragons CLI
 Flatiron Portfolio Project - CLI on Dungeons and Dragons 5th Edition 
+ - This CLI pulls data from http://www.dnd5eapi.co/ -
 
 This project helps users create a Dungeons and Dragons character by providing characteristics and data on each of the
 D&D races. The CLI will provide a list of races, ask the user to choose a race, and provide details and stats on the selection.    
