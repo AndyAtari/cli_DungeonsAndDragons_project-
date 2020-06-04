@@ -15,7 +15,7 @@ Clone the repository and then:
 
 and then:
 
-```bin/run```
+```$ bin/run```
 
 ## Contributing
 
