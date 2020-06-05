@@ -10,8 +10,8 @@ class Cli
     def main
         print_all
         print_selection 
-        name = user_race_selection  
-        valid_call(name)
+        index = user_selection  
+        name = valid_call(index)
         update = get_race_details(name)  
         print_details(update)
         print_continue
@@ -52,17 +52,14 @@ class Cli
         gets.chomp
     end
 
-    def user_race_selection 
-        input = gets.chomp.to_i - 1  
-        Race.all.map{|race| race.name}[input] 
-    end
-
-    def valid_call(name)
-        until Race.find_by_name(name)
+    def valid_call(index)
+         input = index.to_i 
+         if input < 1 || input > Race.all.size 
             print_invalid_selection
             sleep 1
             main 
         end
+        Race.all.map{|race| race.name}[input - 1]
     end
 
     def continue?(choice) 
